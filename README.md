@@ -1,6 +1,9 @@
-# Usage
-
-create venv 
+# Simple Image and Bounding Boxes Resizer
+## Usage
 - ```python -m venv venv```
 - activate it and next ```pip install -r requirements```
-- Example: ```python app.py --imagedir=./images --xmldir=xmldata --outputdir=./outputs``` 
+- ```python app.py --imagedir= --xmldir= --outputdir=``` 
+
+
+## TODO LIST 
+- update xywh bboxes in case of image resize
