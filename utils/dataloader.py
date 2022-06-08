@@ -29,8 +29,6 @@ def img2label_paths(img_paths, label_path):
 
 def get_coco_annotations(annotations, image_id):
     res = []
-    print(annotations)
-    print(len(annotations))
     for i, annotation in enumerate(annotations):
         bboxwh = xyxy2xywh(
             [

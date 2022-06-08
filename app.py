@@ -9,8 +9,20 @@ MAX_HEIGHT = 450
 MAX_WIDTH = 800
 
 
-def resize_img(image, x, y):
-    return cv2.resize(image, (x, y), interpolation=cv2.INTER_LANCZOS4)
+def update_annotations(annotations, width_ratio, height_ratio):
+    new_annotations = []
+    for ann in annotations:
+        x = ann["bbox"]["x"]
+        y = ann["bbox"]["y"]
+        width = ann["bbox"]["width"]
+        height = ann["bbox"]["height"]
+        ann["bbox"]["x"] = int(x * width_ratio)
+        ann["bbox"]["y"] = int(y * height_ratio)
+        ann["bbox"]["width"] = int(width * width_ratio)
+        ann["bbox"]["height"] = int(height * height_ratio)
+        new_annotations.append(ann)
+
+    return new_annotations
 
 
 class Resizer:
@@ -25,10 +37,11 @@ class Resizer:
             print(f"Current image {path} {im.shape}")
             image_label = label["image"]
             image_annotations = label["annotations"]
-
+            print(f"Found {len(image_annotations)} annotations")
             height = im.shape[0]
             width = im.shape[1]
-            if height > MAX_HEIGHT or width > MAX_WIDTH:  # Resize
+            need_resize = height > MAX_HEIGHT or width > MAX_WIDTH
+            if need_resize:  # Resize
                 new_height = MAX_HEIGHT if height > MAX_HEIGHT else height
                 new_width = MAX_WIDTH if width > MAX_WIDTH else width
                 im = cv2.resize(
@@ -37,11 +50,14 @@ class Resizer:
                 print(f"Need Resize, New shape {im.shape}")
                 image_label["width"] = new_width
                 image_label["height"] = new_height  #
-                # TODO resize annotations, no time :(
+                image_annotations = update_annotations(
+                    image_annotations, new_width / width, new_height / height
+                )
             images.append(image_label)
             annotations.extend(image_annotations)
-            cv2.imwrite(f'{self.outputdir}/images/{image_label["id"]}', im)
-            print("\n")
+            img_new_path = f'{self.outputdir}/images/{image_label["id"]}'
+            cv2.imwrite(img_new_path, im)
+            print(f"Saved image at : {img_new_path} \n")
             # cv2.imshow("image", im)
             # cv2.waitKey(1000)
 
@@ -50,9 +66,11 @@ class Resizer:
             "images": images,
             "annotations": annotations,
         }
-
-        with open(f"{self.outputdir}/coco.json", "w") as fp:
+        ann_path = f"{self.outputdir}/coco.json"
+        with open(ann_path, "w") as fp:
             json.dump(dict(coco_annotations), fp, indent=4)
+
+        print(f"Saved COCO annotations at : {ann_path}")
 
 
 @click.command()

@@ -46,10 +46,10 @@
             "image_id": "01.jpg",
             "category_id": "cat",
             "bbox": {
-                "x": 547,
-                "y": 319,
-                "width": 557,
-                "height": 561
+                "x": 397,
+                "y": 232,
+                "width": 405,
+                "height": 408
             }
         },
         {
@@ -57,10 +57,10 @@
             "image_id": "02.jpg",
             "category_id": "dog",
             "bbox": {
-                "x": 627,
-                "y": 745,
-                "width": 781,
-                "height": 853
+                "x": 250,
+                "y": 251,
+                "width": 312,
+                "height": 287
             }
         },
         {
@@ -68,10 +68,10 @@
             "image_id": "02.jpg",
             "category_id": "bike",
             "bbox": {
-                "x": 1473,
-                "y": 600,
-                "width": 621,
-                "height": 978
+                "x": 589,
+                "y": 202,
+                "width": 248,
+                "height": 330
             }
         },
         {
@@ -79,10 +79,10 @@
             "image_id": "02.jpg",
             "category_id": "person",
             "bbox": {
-                "x": 1530,
-                "y": 369,
-                "width": 512,
-                "height": 737
+                "x": 612,
+                "y": 124,
+                "width": 204,
+                "height": 248
             }
         },
         {
@@ -112,10 +112,10 @@
             "image_id": "04.jpg",
             "category_id": "car",
             "bbox": {
-                "x": 1397,
-                "y": 888,
-                "width": 712,
-                "height": 381
+                "x": 582,
+                "y": 333,
+                "width": 296,
+                "height": 142
             }
         },
         {
@@ -123,10 +123,10 @@
             "image_id": "05.jpg",
             "category_id": "ball",
             "bbox": {
-                "x": 959,
-                "y": 662,
-                "width": 80,
-                "height": 81
+                "x": 639,
+                "y": 364,
+                "width": 53,
+                "height": 44
             }
         },
         {
@@ -134,10 +134,10 @@
             "image_id": "05.jpg",
             "category_id": "person",
             "bbox": {
-                "x": 942,
-                "y": 329,
-                "width": 262,
-                "height": 332
+                "x": 628,
+                "y": 181,
+                "width": 174,
+                "height": 182
             }
         },
         {
@@ -145,10 +145,10 @@
             "image_id": "05.jpg",
             "category_id": "person",
             "bbox": {
-                "x": 656,
-                "y": 458,
-                "width": 472,
-                "height": 517
+                "x": 437,
+                "y": 252,
+                "width": 314,
+                "height": 284
             }
         },
         {
@@ -156,10 +156,10 @@
             "image_id": "05.jpg",
             "category_id": "person",
             "bbox": {
-                "x": 187,
-                "y": 421,
-                "width": 225,
-                "height": 563
+                "x": 124,
+                "y": 231,
+                "width": 150,
+                "height": 310
             }
         },
         {
